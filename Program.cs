@@ -5,22 +5,32 @@
 
 
 // Возведение в степень
-void Power(int a, int b)
+static int Powers(int A, int B)
 {
-    int c = a;
-    for (int i = 1; i < b; i++)
+    if (A < 0) A = -A;
+    if (B < 0) B = -B;
+    int c = A;
+    for (int i = 1; i < B; i++)
     {
-        c = c * a;
+        c = c * A;
     }
+    // Console.WriteLine($"Число {a} в степени {b} = {c}.");
+    return c;
+}
+
+void Print(int a, int b, int c)
+{
     Console.WriteLine($"Число {a} в степени {b} = {c}.");
+    Console.WriteLine();
 }
 
 Console.Write("Введите целое число-основание: ");
 int numberA = int.Parse(Console.ReadLine());
-if (numberA < 0) numberA = -1*numberA;
+Console.WriteLine();
 
 Console.Write("Введите степень, в которую надо его возвести: ");
 int numberB = int.Parse(Console.ReadLine());
-if (numberB < 0) numberB = -1*numberB;
+Console.WriteLine();
 
-Power(numberA, numberB);
+int power = Powers(numberA, numberB);
+Print(numberA, numberB, power);
